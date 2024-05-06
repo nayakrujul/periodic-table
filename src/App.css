@@ -73,5 +73,6 @@
 
 #periodic-table {
   width: 100%;
+  min-width: 1500px;
   table-layout: fixed;
 }
