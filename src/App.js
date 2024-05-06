@@ -1,9 +1,9 @@
 import './App.css';
-import { createElement } from 'react';
+import React, { createElement, useRef } from 'react';
 
 const RAW_DATA = (
   `AtomicNumber,Element,Symbol,AtomicMass,NumberofNeutrons,NumberofProtons,NumberofElectrons,Period,Group,Phase,Radioactive,Natural,Metal,Nonmetal,Metalloid,Type,AtomicRadius,Electronegativity,FirstIonization,Density,MeltingPoint,BoilingPoint,NumberOfIsotopes,Discoverer,Year,SpecificHeat,NumberofShells,NumberofValence
-1,Hydrogen,H,1.007,0,1,1,1,1,gas,,yes,,yes,,Nonmetal,0.79,2.2,13.5984,8.99E-05,14.175,20.28,3,Cavendish,1766,14.304,1,1
+1,Hydrogen,H,1.008,0,1,1,1,1,gas,,yes,,yes,,Nonmetal,0.79,2.2,13.5984,8.99E-05,14.175,20.28,3,Cavendish,1766,14.304,1,1
 2,Helium,He,4.002,2,2,2,1,18,gas,,yes,,yes,,Noble Gas,0.49,,24.5874,1.79E-04,,4.22,5,Janssen,1868,5.193,1,
 3,Lithium,Li,6.941,4,3,3,2,1,solid,,yes,yes,,,Alkali Metal,2.1,0.98,5.3917,5.34E-01,453.85,1615,5,Arfvedson,1817,3.582,2,1
 4,Beryllium,Be,9.012,5,4,4,2,2,solid,,yes,yes,,,Alkaline Earth Metal,1.4,1.57,9.3227,1.85E+00,1560.15,2742,6,Vaulquelin,1798,1.825,2,2
@@ -25,7 +25,7 @@ const RAW_DATA = (
 20,Calcium,Ca,40.078,20,20,20,4,2,solid,,yes,yes,,,Alkaline Earth Metal,2.2,1,6.1132,1.54E+00,1112.15,1757,14,Davy,1808,0.647,4,2
 21,Scandium,Sc,44.956,24,21,21,4,3,solid,,yes,yes,,,Transition Metal,2.1,1.36,6.5615,2.99E+00,1812.15,3109,15,Nilson,1878,0.568,4,
 22,Titanium,Ti,47.867,26,22,22,4,4,solid,,yes,yes,,,Transition Metal,2,1.54,6.8281,4.54E+00,1933.15,3560,9,Gregor,1791,0.523,4,
-23,Vanadium,V,50.942,28,23,23,4,5,solid,,yes,yes,,,Transition Metal,1.9,1.63,6.7462,6.11E+00,2175.15,3680,9,   del Rio,1801,0.489,4,
+23,Vanadium,V,50.942,28,23,23,4,5,solid,,yes,yes,,,Transition Metal,1.9,1.63,6.7462,6.11E+00,2175.15,3680,9,del Rio,1801,0.489,4,
 24,Chromium,Cr,51.996,28,24,24,4,6,solid,,yes,yes,,,Transition Metal,1.9,1.66,6.7665,7.15E+00,2130.15,2944,9,Vauquelin,1797,0.449,4,
 25,Manganese,Mn,54.938,30,25,25,4,7,solid,,yes,yes,,,Transition Metal,1.8,1.55,7.434,7.44E+00,1519.15,2334,11,"Gahn, Scheele",1774,0.479,4,
 26,Iron,Fe,55.845,30,26,26,4,8,solid,,yes,yes,,,Transition Metal,1.7,1.83,7.9024,7.87E+00,1808.15,3134,10,Prehistoric,,0.449,4,
@@ -112,9 +112,9 @@ const RAW_DATA = (
 107,Bohrium,Bh,264,157,107,107,7,7,artificial,yes,,yes,,,Transactinide,,,,3.70E+01,,,,Armbruster and M�nzenberg,1981,,7,
 108,Hassium,Hs,267,159,108,108,7,8,artificial,yes,,yes,,,Transactinide,,,,4.10E+01,,,,Armbruster and M�nzenberg,1983,,7,
 109,Meitnerium,Mt,268,159,109,109,7,9,artificial,yes,,yes,,,Transactinide,,,,3.50E+01,,,,"GSI, Darmstadt, West Germany",1982,,7,
-110,Darmstadtium ,Ds ,271,161,110,110,7,10,artificial,yes,,yes,,,Transactinide,,,,,,,,,1994,,7,
-111,Roentgenium ,Rg ,272,161,111,111,7,11,artificial,yes,,yes,,,Transactinide,,,,,,,,,1994,,7,
-112,Copernicium ,Cn ,285,173,112,112,7,12,artificial,yes,,yes,,,Transactinide,,,,,,,,,1996,,7,
+110,Darmstadtium,Ds,271,161,110,110,7,10,artificial,yes,,yes,,,Transactinide,,,,,,,,,1994,,7,
+111,Roentgenium,Rg,272,161,111,111,7,11,artificial,yes,,yes,,,Transactinide,,,,,,,,,1994,,7,
+112,Copernicium,Cn,285,173,112,112,7,12,artificial,yes,,yes,,,Transactinide,,,,,,,,,1996,,7,
 113,Nihonium,Nh,284,171,113,113,7,13,artificial,yes,,yes,,,,,,,,,,,,2004,,7,3
 114,Flerovium,Fl,289,175,114,114,7,14,artificial,yes,,yes,,,Transactinide,,,,,,,,,1999,,7,4
 115,Moscovium,Mc,288,173,115,115,7,15,artificial,yes,,yes,,,,,,,,,,,,2010,,7,5
@@ -134,7 +134,7 @@ split.map(line => {
   dict[num] = lst;
 });
 
-function Table() {
+function MainTable() {
   let tbl_children = [];
   for (let i = 1; i <= 7; i++) {
     let row_children = [];
@@ -144,7 +144,26 @@ function Table() {
     let row = createElement('tr', {className: "table-row", id: `row-${i}`}, ...row_children);
     tbl_children.push(row);
   }
-  return createElement('table', {id: "periodic-table"}, ...tbl_children);
+  return createElement('table', {id: "main-table"}, ...tbl_children);
+}
+
+function LATable() {
+  let tbl_children = [];
+  for (let i = 0; i < 2; i++) {
+    let row_children = [];
+    for (let j = 0; j <= 14; j++) {
+      row_children.push(<td className="table-cell" id={`cell-${i + 8}-${j}`}><GetElement posx={8} posy={i * 32 + 57 + j}></GetElement></td>);
+    }
+    let row = createElement(
+      'tr', {className: "table-row", id: `row-${i + 8}`},
+      <td className="table-cell"><GetElement></GetElement></td>,
+      <td className="table-cell"><GetElement></GetElement></td>,
+      ...row_children,
+      <td className="table-cell"><GetElement></GetElement></td>,
+    );
+    tbl_children.push(row);
+  }
+  return createElement('table', {id: "la-table"}, ...tbl_children);
 }
 
 function Element({num, symbol, name, mass, state}) {
@@ -163,18 +182,30 @@ function GetElement({posx, posy}) {
     let l = dict[key];
     let [x, y] = [l[6], l[7]];
     if (x == posx && y == posy) {
-      return <Element num={key} symbol={l[1]} name={l[0]} mass={l[2]} state={l[8]}></Element>
+      return <Element num={key} symbol={l[1]} name={l[0]} mass={l[2]} state={l[8]}></Element>;
     }
   }
   // Special case for (6, 3) and (7, 3)
   if (posy === 3) {
     if (posx === 6) {
-      return <Element num="57-71" symbol="..." name="Lanthanides" mass="&nbsp;" state="solid"></Element>
+      return <Element num="57-71" symbol="..." name="Lanthanides" mass="&nbsp;" state="solid"></Element>;
     } else if (posx === 7) {
-      return <Element num="89-103" symbol="..." name="Actinides" mass="&nbsp;" state="solid"></Element>
+      return <Element num="89-103" symbol="..." name="Actinides" mass="&nbsp;" state="solid"></Element>;
     }
   }
+  // Special case for just getting the element by number (posx=8, posy=num)
+  if (posx === 8) {
+    let l = dict[posy];
+    return <Element num={posy} symbol={l[1]} name={l[0]} mass={l[2]} state={l[8]}></Element>;
+  }
   return <div className="no-element"></div>;
+}
+
+function DownloadButton() {
+  return <button id="download" onClick={() => {
+    let url = "data:text/csv," + RAW_DATA;
+    window.location.replace(url);
+  }}>Download CSV</button>
 }
 
 function App() {
@@ -182,8 +213,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Periodic Table</h1>
+        <DownloadButton></DownloadButton>
       </header>
-      <Table></Table>
+      <MainTable></MainTable>
+      <LATable></LATable>
       <footer className="App-footer">
         <h3>&copy; Rujul Nayak 2024</h3>
       </footer>

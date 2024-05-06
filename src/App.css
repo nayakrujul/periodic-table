@@ -1,8 +1,12 @@
+html {
+  scrollbar-color: lightgray #282c34;
+}
+
 .App {
   background-color: #282c34;
   min-height: 100vh;
   width: 100%;
-  min-width: 1500px;
+  min-width: 1700px;
   color: white;
 }
 
@@ -73,8 +77,16 @@
   text-align: center;
 }
 
-#periodic-table {
+#main-table, #la-table {
   width: 100%;
-  min-width: 1500px;
+  min-width: 1700px;
   table-layout: fixed;
+  padding-bottom: 1rem;
+}
+
+#download {
+  background-color: #191f2b;
+  color: white;
+  font-size: large;
+  border-radius: 8px;
 }
