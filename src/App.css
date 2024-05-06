@@ -1,0 +1,77 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  color: white;
+}
+
+.App-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-footer {
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.table-cell .num {
+  font-size: medium;
+  text-align: left;
+  padding-left: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+.symbol {
+  font-size: xxx-large;
+  font-weight: bold;
+}
+
+.symbol.solid {
+  color: lightgray;
+}
+
+.symbol.liq {
+  color: lightcoral;
+}
+
+.symbol.gas {
+  color: lightblue;
+}
+
+.symbol.artificial {
+  color: darkgray;
+}
+
+.name {
+  font-size: small;
+}
+
+.mass {
+  font-size: medium;
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.table-cell {
+  height: 100%;
+  border: 2px solid;
+}
+
+.table-cell:has(> .no-element) {
+  border: 0px;
+}
+
+.table-cell * {
+  display: block;
+  text-align: center;
+}
+
+#periodic-table {
+  width: 100%;
+  table-layout: fixed;
+}
