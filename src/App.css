@@ -46,7 +46,7 @@
 }
 
 .symbol.artificial {
-  color: darkgray;
+  color: rgb(128, 128, 128);
 }
 
 .name {

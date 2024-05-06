@@ -59,7 +59,7 @@ const RAW_DATA = (
 54,Xenon,Xe,131.293,77,54,54,5,18,gas,,yes,,yes,,Noble Gas,1.2,,12.1298,5.89E-03,161.45,165.03,31,Ramsay and Travers,1898,0.158,5,8
 55,Cesium,Cs,132.905,78,55,55,6,1,solid,,yes,yes,,,Alkali Metal,3.3,0.79,3.8939,1.87E+00,301.7,944,22,Bunsen and Kirchoff,1860,0.242,6,1
 56,Barium,Ba,137.327,81,56,56,6,2,solid,,yes,yes,,,Alkaline Earth Metal,2.8,0.89,5.2117,3.59E+00,1002.15,2170,25,Davy,1808,0.204,6,2
-57,Lanthanum,La,138.905,82,57,57,6,3,solid,,yes,yes,,,Lanthanide,2.7,1.1,5.5769,6.15E+00,1193.15,3737,19,Mosander,1839,0.195,6,
+57,Lanthanum,La,138.905,82,57,57,6,,solid,,yes,yes,,,Lanthanide,2.7,1.1,5.5769,6.15E+00,1193.15,3737,19,Mosander,1839,0.195,6,
 58,Cerium,Ce,140.116,82,58,58,6,,solid,,yes,yes,,,Lanthanide,2.7,1.12,5.5387,6.77E+00,1071.15,3716,19,Berzelius,1803,0.192,6,
 59,Praseodymium,Pr,140.908,82,59,59,6,,solid,,yes,yes,,,Lanthanide,2.7,1.13,5.473,6.77E+00,1204.15,3793,15,von Welsbach,1885,0.193,6,
 60,Neodymium,Nd,144.242,84,60,60,6,,solid,,yes,yes,,,Lanthanide,2.6,1.14,5.525,7.01E+00,1289.15,3347,16,von Welsbach,1885,0.19,6,
@@ -91,7 +91,7 @@ const RAW_DATA = (
 86,Radon,Rn,222,136,86,86,6,18,gas,yes,yes,yes,,,Alkali Metal,1.3,,10.7485,9.73E-03,202.15,211.3,20,Dorn,1900,0.094,6,8
 87,Francium,Fr,223,136,87,87,7,1,solid,yes,yes,yes,,,Alkaline Earth Metal,,0.7,4.0727,1.87E+00,300.15,950,21,Perey,1939,,7,1
 88,Radium,Ra,226,138,88,88,7,2,solid,yes,yes,yes,,,Actinide,,0.9,5.2784,5.50E+00,973.15,2010,15,Pierre and Marie Curie,1898,,7,2
-89,Actinium,Ac,227,138,89,89,7,3,solid,yes,yes,yes,,,Actinide,,1.1,5.17,1.01E+01,1323.15,3471,11,Debierne/Giesel,1899,0.12,7,
+89,Actinium,Ac,227,138,89,89,7,,solid,yes,yes,yes,,,Actinide,,1.1,5.17,1.01E+01,1323.15,3471,11,Debierne/Giesel,1899,0.12,7,
 90,Thorium,Th,232.038,142,90,90,7,,solid,yes,yes,yes,,,Actinide,,1.3,6.3067,1.17E+01,2028.15,5061,12,Berzelius,1828,0.113,7,
 91,Protactinium,Pa,231.036,140,91,91,7,,solid,yes,yes,yes,,,Actinide,,1.5,5.89,1.54E+01,1873.15,4300,14,Hahn and Meitner,1917,,7,
 92,Uranium,U,238.029,146,92,92,7,,solid,yes,yes,yes,,,Actinide,,1.38,6.1941,1.90E+01,1405.15,4404,15,Peligot,1841,0.116,7,
@@ -164,6 +164,14 @@ function GetElement({posx, posy}) {
     let [x, y] = [l[6], l[7]];
     if (x == posx && y == posy) {
       return <Element num={key} symbol={l[1]} name={l[0]} mass={l[2]} state={l[8]}></Element>
+    }
+  }
+  // Special case for (6, 3) and (7, 3)
+  if (posy === 3) {
+    if (posx === 6) {
+      return <Element num="57-71" symbol="..." name="Lanthanides" mass="&nbsp;" state="solid"></Element>
+    } else if (posx === 7) {
+      return <Element num="89-103" symbol="..." name="Actinides" mass="&nbsp;" state="solid"></Element>
     }
   }
   return <div className="no-element"></div>;
