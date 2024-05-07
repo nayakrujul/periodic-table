@@ -68,6 +68,12 @@ html {
   border: 2px solid;
 }
 
+.table-cell:has(> .symbol):hover {
+  background-color: #282c34;
+  transform: scale(1.5, 1.5);
+  transform-origin: center;
+}
+
 .table-cell:has(> .no-element) {
   border: 0px;
 }
