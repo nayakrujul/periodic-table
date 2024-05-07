@@ -166,10 +166,12 @@ function LATable() {
   return createElement('table', {id: "la-table"}, ...tbl_children);
 }
 
-function Element({num, symbol, name, mass, state}) {
+function Element({num, symbol, name, mass, state, radio}) {
   return (
     <>
       <span className="num">{num}</span>
+      <img className={`radio radio-${radio}`}
+        src={`${process.env.PUBLIC_URL}/assets/radioactive.svg`} />
       <span className={`symbol ${state}`}>{symbol}</span>
       <span className="name">{name}</span>
       <span className="mass">{mass}</span>
@@ -182,21 +184,21 @@ function GetElement({posx, posy}) {
     let l = dict[key];
     let [x, y] = [l[6], l[7]];
     if (x == posx && y == posy) {
-      return <Element num={key} symbol={l[1]} name={l[0]} mass={l[2]} state={l[8]}></Element>;
+      return <Element num={key} symbol={l[1]} name={l[0]} mass={l[2]} state={l[8]} radio={l[9]}></Element>;
     }
   }
   // Special case for (6, 3) and (7, 3)
   if (posy === 3) {
     if (posx === 6) {
-      return <Element num="57-71" symbol="..." name="Lanthanides" mass="&nbsp;" state="solid"></Element>;
+      return <Element num="57-71" symbol="..." name="Lanthanides" mass="&nbsp;" state="solid" radio=""></Element>;
     } else if (posx === 7) {
-      return <Element num="89-103" symbol="..." name="Actinides" mass="&nbsp;" state="solid"></Element>;
+      return <Element num="89-103" symbol="..." name="Actinides" mass="&nbsp;" state="solid" radio=""></Element>;
     }
   }
   // Special case for just getting the element by number (posx=8, posy=num)
   if (posx === 8) {
     let l = dict[posy];
-    return <Element num={posy} symbol={l[1]} name={l[0]} mass={l[2]} state={l[8]}></Element>;
+    return <Element num={posy} symbol={l[1]} name={l[0]} mass={l[2]} state={l[8]} radio={l[9]}></Element>;
   }
   return <div className="no-element"></div>;
 }

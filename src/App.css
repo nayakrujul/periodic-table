@@ -2,6 +2,16 @@ html {
   scrollbar-color: lightgray #282c34;
 }
 
+body {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
 .App {
   background-color: #282c34;
   min-height: 100vh;
@@ -63,13 +73,28 @@ html {
   padding-bottom: 0.25rem;
 }
 
+.radio {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+img.radio.radio- {
+  display: none;
+}
+
 .table-cell {
+  z-index: auto;
+  position: relative;
+  background-color: #282c34;
   height: 100%;
   border: 2px solid;
 }
 
 .table-cell:has(> .symbol):hover {
-  background-color: #282c34;
+  z-index: 1000;
   transform: scale(1.5, 1.5);
   transform-origin: center;
 }
