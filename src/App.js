@@ -15,7 +15,7 @@ const RAW_DATA = (
 10,Neon,Ne,20.18,10,10,10,2,18,gas,,yes,,yes,,Noble Gas,0.51,,21.5645,9.00E-04,24.703,27.07,8,Ramsay and Travers,1898,1.03,2,8
 11,Sodium,Na,22.99,12,11,11,3,1,solid,,yes,yes,,,Alkali Metal,2.2,0.93,5.1391,9.71E-01,371.15,1156,7,Davy,1807,1.228,3,1
 12,Magnesium,Mg,24.305,12,12,12,3,2,solid,,yes,yes,,,Alkaline Earth Metal,1.7,1.31,7.6462,1.74E+00,923.15,1363,8,Black,1755,1.023,3,2
-13,Aluminum,Al,26.982,14,13,13,3,13,solid,,yes,yes,,,Metal,1.8,1.61,5.9858,2.70E+00,933.4,2792,8,Ørsted,1827,0.897,3,3
+13,Aluminium,Al,26.982,14,13,13,3,13,solid,,yes,yes,,,Metal,1.8,1.61,5.9858,2.70E+00,933.4,2792,8,Ørsted,1827,0.897,3,3
 14,Silicon,Si,28.086,14,14,14,3,14,solid,,yes,,,yes,Metalloid,1.5,1.9,8.1517,2.33E+00,1683.15,3538,8,Berzelius,1824,0.705,3,4
 15,Phosphorus,P,30.974,16,15,15,3,15,solid,,yes,,yes,,Nonmetal,1.2,2.19,10.4867,1.82E+00,317.25,553,7,Brand,1669,0.769,3,5
 16,Sulfur,S,32.065,16,16,16,3,16,solid,,yes,,yes,,Nonmetal,1.1,2.58,10.36,2.07E+00,388.51,717.8,10,Prehistoric,,0.71,3,6
@@ -45,7 +45,7 @@ const RAW_DATA = (
 40,Zirconium,Zr,91.224,51,40,40,5,4,solid,,yes,yes,,,Transition Metal,2.2,1.33,6.6339,6.51E+00,2125.15,4682,20,Klaproth,1789,0.278,5,
 41,Niobium,Nb,92.906,52,41,41,5,5,solid,,yes,yes,,,Transition Metal,2.1,1.6,6.7589,8.57E+00,2741.15,5017,24,Hatchett,1801,0.265,5,
 42,Molybdenum,Mo,95.96,54,42,42,5,6,solid,,yes,yes,,,Transition Metal,2,2.16,7.0924,1.02E+01,2890.15,4912,20,Scheele,1778,0.251,5,
-43,Technetium,Tc,98,55,43,43,5,7,artificial,yes,,yes,,,Transition Metal,2,1.9,7.28,1.15E+01,2473.15,5150,23,Perrier and Segrè,1937,,5,
+43,Technetium,Tc,98,55,43,43,5,7,solid,yes,,yes,,,Transition Metal,2,1.9,7.28,1.15E+01,2473.15,5150,23,Perrier and Segrè,1937,,5,
 44,Ruthenium,Ru,101.07,57,44,44,5,8,solid,,yes,yes,,,Transition Metal,1.9,2.2,7.3605,1.24E+01,2523.15,4423,16,Klaus,1844,0.238,5,
 45,Rhodium,Rh,102.906,58,45,45,5,9,solid,,yes,yes,,,Transition Metal,1.8,2.28,7.4589,1.24E+01,2239.15,3968,20,Wollaston,1803,0.243,5,
 46,Palladium,Pd,106.42,60,46,46,5,10,solid,,yes,yes,,,Transition Metal,1.8,2.2,8.3369,1.20E+01,1825.15,3236,21,Wollaston,1803,0.244,5,
@@ -57,13 +57,13 @@ const RAW_DATA = (
 52,Tellurium,Te,127.6,76,52,52,5,16,solid,,yes,,,yes,Metalloid,1.4,2.1,9.0096,6.23E+00,722.8,1261,29,von Reichenstein,1782,0.202,5,6
 53,Iodine,I,126.904,74,53,53,5,17,solid,,yes,,yes,,Halogen,1.3,2.66,10.4513,4.93E+00,386.65,457.4,24,Courtois,1811,0.214,5,7
 54,Xenon,Xe,131.293,77,54,54,5,18,gas,,yes,,yes,,Noble Gas,1.2,,12.1298,5.89E-03,161.45,165.03,31,Ramsay and Travers,1898,0.158,5,8
-55,Cesium,Cs,132.905,78,55,55,6,1,solid,,yes,yes,,,Alkali Metal,3.3,0.79,3.8939,1.87E+00,301.7,944,22,Bunsen and Kirchoff,1860,0.242,6,1
+55,Caesium,Cs,132.905,78,55,55,6,1,solid,,yes,yes,,,Alkali Metal,3.3,0.79,3.8939,1.87E+00,301.7,944,22,Bunsen and Kirchoff,1860,0.242,6,1
 56,Barium,Ba,137.327,81,56,56,6,2,solid,,yes,yes,,,Alkaline Earth Metal,2.8,0.89,5.2117,3.59E+00,1002.15,2170,25,Davy,1808,0.204,6,2
 57,Lanthanum,La,138.905,82,57,57,6,,solid,,yes,yes,,,Lanthanide,2.7,1.1,5.5769,6.15E+00,1193.15,3737,19,Mosander,1839,0.195,6,
 58,Cerium,Ce,140.116,82,58,58,6,,solid,,yes,yes,,,Lanthanide,2.7,1.12,5.5387,6.77E+00,1071.15,3716,19,Berzelius,1803,0.192,6,
 59,Praseodymium,Pr,140.908,82,59,59,6,,solid,,yes,yes,,,Lanthanide,2.7,1.13,5.473,6.77E+00,1204.15,3793,15,von Welsbach,1885,0.193,6,
 60,Neodymium,Nd,144.242,84,60,60,6,,solid,,yes,yes,,,Lanthanide,2.6,1.14,5.525,7.01E+00,1289.15,3347,16,von Welsbach,1885,0.19,6,
-61,Promethium,Pm,145,84,61,61,6,,artificial,yes,,yes,,,Lanthanide,2.6,1.13,5.582,7.26E+00,1204.15,3273,14,Marinsky et al.,1945,,6,
+61,Promethium,Pm,145,84,61,61,6,,solid,yes,,yes,,,Lanthanide,2.6,1.13,5.582,7.26E+00,1204.15,3273,14,Marinsky et al.,1945,,6,
 62,Samarium,Sm,150.36,88,62,62,6,,solid,,yes,yes,,,Lanthanide,2.6,1.17,5.6437,7.52E+00,1345.15,2067,17,Boisbaudran,1879,0.197,6,
 63,Europium,Eu,151.964,89,63,63,6,,solid,,yes,yes,,,Lanthanide,2.6,1.2,5.6704,5.24E+00,1095.15,1802,21,Demarcay,1901,0.182,6,
 64,Gadolinium,Gd,157.25,93,64,64,6,,solid,,yes,yes,,,Lanthanide,2.5,1.2,6.1501,7.90E+00,1585.15,3546,17,de Marignac,1880,0.236,6,
@@ -76,7 +76,7 @@ const RAW_DATA = (
 71,Lutetium,Lu,174.967,104,71,71,6,,solid,,yes,yes,,,Lanthanide,2.3,1.27,5.4259,9.84E+00,1936.15,3675,22,Urbain/ von Welsbach,1907,0.154,6,
 72,Hafnium,Hf,178.49,106,72,72,6,4,solid,,yes,yes,,,Transition Metal,2.2,1.3,6.8251,1.33E+01,2500.15,4876,17,Coster and von Hevesy,1923,0.144,6,
 73,Tantalum,Ta,180.948,108,73,73,6,5,solid,,yes,yes,,,Transition Metal,2.1,1.5,7.5496,1.67E+01,3269.15,5731,19,Ekeberg,1801,0.14,6,
-74,Wolfram,W,183.84,110,74,74,6,6,solid,,yes,yes,,,Transition Metal,2,2.36,7.864,1.93E+01,3680.15,5828,22,J. and F. d'Elhuyar,1783,0.132,6,
+74,Tungsten,W,183.84,110,74,74,6,6,solid,,yes,yes,,,Transition Metal,2,2.36,7.864,1.93E+01,3680.15,5828,22,J. and F. d'Elhuyar,1783,0.132,6,
 75,Rhenium,Re,186.207,111,75,75,6,7,solid,,yes,yes,,,Transition Metal,2,1.9,7.8335,2.10E+01,3453.15,5869,21,"Noddack, Berg, and Tacke",1925,0.137,6,
 76,Osmium,Os,190.23,114,76,76,6,8,solid,,yes,yes,,,Transition Metal,1.9,2.2,8.4382,2.26E+01,3300.15,5285,19,Tennant,1803,0.13,6,
 77,Iridium,Ir,192.217,115,77,77,6,9,solid,,yes,yes,,,Transition Metal,1.9,2.2,8.967,2.26E+01,2716.15,4701,25,Tennant,1804,0.131,6,
@@ -95,32 +95,32 @@ const RAW_DATA = (
 90,Thorium,Th,232.038,142,90,90,7,,solid,yes,yes,yes,,,Actinide,,1.3,6.3067,1.17E+01,2028.15,5061,12,Berzelius,1828,0.113,7,
 91,Protactinium,Pa,231.036,140,91,91,7,,solid,yes,yes,yes,,,Actinide,,1.5,5.89,1.54E+01,1873.15,4300,14,Hahn and Meitner,1917,,7,
 92,Uranium,U,238.029,146,92,92,7,,solid,yes,yes,yes,,,Actinide,,1.38,6.1941,1.90E+01,1405.15,4404,15,Peligot,1841,0.116,7,
-93,Neptunium,Np,237,144,93,93,7,,artificial,yes,,yes,,,Actinide,,1.36,6.2657,2.05E+01,913.15,4273,153,McMillan and Abelson,1940,,7,
-94,Plutonium,Pu,244,150,94,94,7,,artificial,yes,,yes,,,Actinide,,1.28,6.0262,1.98E+01,913.15,3501,163,Seaborg et al.,1940,,7,
-95,Americium,Am,243,148,95,95,7,,artificial,yes,,yes,,,Actinide,,1.3,5.9738,1.37E+01,1267.15,2880,133,Seaborg et al.,1944,,7,
-96,Curium,Cm,247,151,96,96,7,,artificial,yes,,yes,,,Actinide,,1.3,5.9915,1.35E+01,1340.15,3383,133,Seaborg et al.,1944,,7,
-97,Berkelium,Bk,247,150,97,97,7,,artificial,yes,,yes,,,Actinide,,1.3,6.1979,1.48E+01,1259.15,983,83,Seaborg et al.,1949,,7,
-98,Californium,Cf,251,153,98,98,7,,artificial,yes,,yes,,,Actinide,,1.3,6.2817,1.51E+01,1925.15,1173,123,Seaborg et al.,1950,,7,
-99,Einsteinium,Es,252,153,99,99,7,,artificial,yes,,yes,,,Actinide,,1.3,6.42,1.35E+01,1133.15,,123,Ghiorso et al.,1952,,7,
-100,Fermium,Fm,257,157,100,100,7,,artificial,yes,,yes,,,Actinide,,1.3,6.5,,,,103,Ghiorso et al.,1953,,7,
-101,Mendelevium,Md,258,157,101,101,7,,artificial,yes,,yes,,,Actinide,,1.3,6.58,,,,33,Ghiorso et al.,1955,,7,
-102,Nobelium,No,259,157,102,102,7,,artificial,yes,,yes,,,Actinide,,1.3,6.65,,,,73,Ghiorso et al.,1958,,7,
-103,Lawrencium,Lr,262,159,103,103,7,,artificial,yes,,yes,,,Actinide,,,,,,,203,Ghiorso et al.,1961,,7,
-104,Rutherfordium,Rf,261,157,104,104,7,4,artificial,yes,,yes,,,Transactinide,,,,1.81E+01,,,,Ghiorso et al.,1969,,7,
-105,Dubnium,Db,262,157,105,105,7,5,artificial,yes,,yes,,,Transactinide,,,,3.90E+01,,,,Ghiorso et al.,1970,,7,
-106,Seaborgium,Sg,266,160,106,106,7,6,artificial,yes,,yes,,,Transactinide,,,,3.50E+01,,,,Ghiorso et al.,1974,,7,
-107,Bohrium,Bh,264,157,107,107,7,7,artificial,yes,,yes,,,Transactinide,,,,3.70E+01,,,,Armbruster and Münzenberg,1981,,7,
-108,Hassium,Hs,267,159,108,108,7,8,artificial,yes,,yes,,,Transactinide,,,,4.10E+01,,,,Armbruster and Münzenberg,1983,,7,
-109,Meitnerium,Mt,268,159,109,109,7,9,artificial,yes,,yes,,,Transactinide,,,,3.50E+01,,,,GSI in Darmstadt in West Germany,1982,,7,
-110,Darmstadtium,Ds,271,161,110,110,7,10,artificial,yes,,yes,,,Transactinide,,,,,,,,,1994,,7,
-111,Roentgenium,Rg,272,161,111,111,7,11,artificial,yes,,yes,,,Transactinide,,,,,,,,,1994,,7,
-112,Copernicium,Cn,285,173,112,112,7,12,artificial,yes,,yes,,,Transactinide,,,,,,,,,1996,,7,
-113,Nihonium,Nh,284,171,113,113,7,13,artificial,yes,,yes,,,,,,,,,,,,2004,,7,3
-114,Flerovium,Fl,289,175,114,114,7,14,artificial,yes,,yes,,,Transactinide,,,,,,,,,1999,,7,4
-115,Moscovium,Mc,288,173,115,115,7,15,artificial,yes,,yes,,,,,,,,,,,,2010,,7,5
-116,Livermorium,Lv,292,176,116,116,7,16,artificial,yes,,yes,,,Transactinide,,,,,,,,,2000,,7,6
-117,Tennessine,Ts,295,178,117,117,7,17,artificial,yes,,,yes,,,,,,,,,,,2010,,7,7
-118,Oganesson,Og,294,176,118,118,7,18,artificial,yes,,,yes,,Noble Gas,,,,,,,,,2006,,7,8`
+93,Neptunium,Np,237,144,93,93,7,,solid,yes,,yes,,,Actinide,,1.36,6.2657,2.05E+01,913.15,4273,153,McMillan and Abelson,1940,,7,
+94,Plutonium,Pu,244,150,94,94,7,,solid,yes,,yes,,,Actinide,,1.28,6.0262,1.98E+01,913.15,3501,163,Seaborg et al.,1940,,7,
+95,Americium,Am,243,148,95,95,7,,solid,yes,,yes,,,Actinide,,1.3,5.9738,1.37E+01,1267.15,2880,133,Seaborg et al.,1944,,7,
+96,Curium,Cm,247,151,96,96,7,,solid,yes,,yes,,,Actinide,,1.3,5.9915,1.35E+01,1340.15,3383,133,Seaborg et al.,1944,,7,
+97,Berkelium,Bk,247,150,97,97,7,,solid,yes,,yes,,,Actinide,,1.3,6.1979,1.48E+01,1259.15,983,83,Seaborg et al.,1949,,7,
+98,Californium,Cf,251,153,98,98,7,,solid,yes,,yes,,,Actinide,,1.3,6.2817,1.51E+01,1925.15,1173,123,Seaborg et al.,1950,,7,
+99,Einsteinium,Es,252,153,99,99,7,,solid,yes,,yes,,,Actinide,,1.3,6.42,1.35E+01,1133.15,,123,Ghiorso et al.,1952,,7,
+100,Fermium,Fm,257,157,100,100,7,,solid,yes,,yes,,,Actinide,,1.3,6.5,,,,103,Ghiorso et al.,1953,,7,
+101,Mendelevium,Md,258,157,101,101,7,,solid,yes,,yes,,,Actinide,,1.3,6.58,,,,33,Ghiorso et al.,1955,,7,
+102,Nobelium,No,259,157,102,102,7,,solid,yes,,yes,,,Actinide,,1.3,6.65,,,,73,Ghiorso et al.,1958,,7,
+103,Lawrencium,Lr,262,159,103,103,7,,solid,yes,,yes,,,Actinide,,,,,,,203,Ghiorso et al.,1961,,7,
+104,Rutherfordium,Rf,261,157,104,104,7,4,unknown,yes,,yes,,,Transactinide,,,,1.81E+01,,,,Ghiorso et al.,1969,,7,
+105,Dubnium,Db,262,157,105,105,7,5,unknown,yes,,yes,,,Transactinide,,,,3.90E+01,,,,Ghiorso et al.,1970,,7,
+106,Seaborgium,Sg,266,160,106,106,7,6,unknown,yes,,yes,,,Transactinide,,,,3.50E+01,,,,Ghiorso et al.,1974,,7,
+107,Bohrium,Bh,264,157,107,107,7,7,unknown,yes,,yes,,,Transactinide,,,,3.70E+01,,,,Armbruster and Münzenberg,1981,,7,
+108,Hassium,Hs,267,159,108,108,7,8,unknown,yes,,yes,,,Transactinide,,,,4.10E+01,,,,Armbruster and Münzenberg,1983,,7,
+109,Meitnerium,Mt,268,159,109,109,7,9,unknown,yes,,yes,,,Transactinide,,,,3.50E+01,,,,GSI in Darmstadt in West Germany,1982,,7,
+110,Darmstadtium,Ds,271,161,110,110,7,10,unknown,yes,,yes,,,Transactinide,,,,,,,,,1994,,7,
+111,Roentgenium,Rg,272,161,111,111,7,11,unknown,yes,,yes,,,Transactinide,,,,,,,,,1994,,7,
+112,Copernicium,Cn,285,173,112,112,7,12,unknown,yes,,yes,,,Transactinide,,,,,,,,,1996,,7,
+113,Nihonium,Nh,284,171,113,113,7,13,unknown,yes,,yes,,,,,,,,,,,,2004,,7,3
+114,Flerovium,Fl,289,175,114,114,7,14,unknown,yes,,yes,,,Transactinide,,,,,,,,,1999,,7,4
+115,Moscovium,Mc,288,173,115,115,7,15,unknown,yes,,yes,,,,,,,,,,,,2010,,7,5
+116,Livermorium,Lv,292,176,116,116,7,16,unknown,yes,,yes,,,Transactinide,,,,,,,,,2000,,7,6
+117,Tennessine,Ts,295,178,117,117,7,17,unknown,yes,,,yes,,,,,,,,,,,2010,,7,7
+118,Oganesson,Og,294,176,118,118,7,18,unknown,yes,,,yes,,Noble Gas,,,,,,,,,2006,,7,8`
 );
 
 let dict = {};

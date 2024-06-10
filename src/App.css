@@ -59,7 +59,7 @@ body {
   color: lightblue;
 }
 
-.symbol.artificial {
+.symbol.unknown {
   color: rgb(128, 128, 128);
 }
 
@@ -91,12 +91,16 @@ img.radio.radio- {
   background-color: #282c34;
   height: 100%;
   border: 2px solid;
+  transition: border-color 0s;
 }
 
 .table-cell:has(> .symbol):hover {
   z-index: 1000;
   transform: scale(1.5, 1.5);
   transform-origin: center;
+  animation: borderExpand 1s linear ease;
+  border-color: #6f99b9;
+  transition: border-color 0.4s;
 }
 
 .table-cell:has(> .no-element) {
