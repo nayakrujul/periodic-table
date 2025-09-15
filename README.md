@@ -1,3 +1,3 @@
 # Periodic Table
 
-See **https://rujulnayak.com/periodic-table**.
+See **https://nayakrujul.github.io/periodic-table**.
